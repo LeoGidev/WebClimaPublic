@@ -42,3 +42,13 @@
         const geoApiKey = 'YOUR_GEO_API_KEY';  // API key de ipinfo.io (opcional)  
         async function getGeoLocation() {
             try {
+                const response = await fetch(`https://ipinfo.io/json?token=${geoApiKey}`);
+                const data = await response.json();
+                return data.city;
+            } catch (error) {
+                console.error('Error leyendo datos de geolocalización:', error);
+                document.getElementById('city').innerText = 'Ciudad: Error leyendo datos de geolocalización';
+                document.getElementById('temperature').innerText = 'Temperatura: Error leyendo dato';
+                document.getElementById('description').innerText = 'Descripción: Error leyendo dato';
+            }
+        }
