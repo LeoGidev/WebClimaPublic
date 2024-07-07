@@ -60,4 +60,9 @@
                 document.getElementById('temperature').innerText = `Temperatura: ${data.main.temp} °C`;
                 document.getElementById('description').innerText = `Descripción: ${data.weather[0].description}`;
             } catch (error) {
-                
+                console.error('Error leyendo datos del clima:', error);
+                document.getElementById('city').innerText = 'Ciudad: Error leyendo datos';
+                document.getElementById('temperature').innerText = 'Temperatura: Error leyendo dato';
+                document.getElementById('description').innerText = 'Descripción: Error leyendo dato';
+            }
+        }
