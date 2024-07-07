@@ -52,3 +52,7 @@
                 document.getElementById('description').innerText = 'Descripción: Error leyendo dato';
             }
         }
+        async function getWeather(city) {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+                const data = await response.json();
