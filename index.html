@@ -66,3 +66,9 @@
                 document.getElementById('description').innerText = 'Descripción: Error leyendo dato';
             }
         }
+        async function init() {
+            const city = await getGeoLocation();
+            if (city) {
+                getWeather(city);
+            }
+        }
